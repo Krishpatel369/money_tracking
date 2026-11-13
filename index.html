@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Paisa Tracker – Track every rupee</title>
+<link rel="icon" type="image/svg+xml" href="logo.svg">
+<link rel="apple-touch-icon" href="logo.svg">
+<meta name="theme-color" content="#1d2a24">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+<div class="top"><h1 class="brand"><img src="logo.svg" alt="" width="36" height="36">Paisa Tracker</h1><input type="month" id="mon" aria-label="Month"></div>
+<div class="bal"><small>Balance this month</small><b id="bal">₹0</b>
+<div class="row"><div><small>Income</small><br><span class="in" id="inc">₹0</span></div><div><small>Spent</small><br><span class="out" id="exp">₹0</span></div><div><small>In bank</small><br><span id="bank">₹0</span></div><div><small>In cash</small><br><span id="cash">₹0</span></div></div></div>
+
+<section><h2>Add a transaction</h2>
+<div class="seg"><button class="on" data-t="out" type="button">Expense</button><button data-t="in" type="button">Income</button></div>
+<div class="f">
+<input id="amt" type="number" inputmode="decimal" min="0" placeholder="Amount in ₹" aria-label="Amount">
+<input id="date" type="date" aria-label="Date">
+<select id="cat" aria-label="Category"></select>
+<input id="newcat" class="w" placeholder="New category name (e.g. Business)" aria-label="New category name" maxlength="30" hidden>
+<select id="mode" aria-label="Bank or cash"><option>Bank</option><option>Cash</option></select>
+<input id="note" class="w" placeholder="Note (optional)" aria-label="Note">
+</div>
+<button class="add" id="add" type="button">Save transaction</button></section>
+
+<section><h2>Daily cash &amp; bank flow</h2>
+<div class="leg"><span><i style="background:#dc2626"></i>Expenses</span><span><i style="background:#2563eb"></i>Added money</span><span><i style="background:var(--ink)"></i>Bank money</span></div>
+<div id="chart"></div></section>
+
+<section><h2>Spending by category</h2><div id="cats"></div></section>
+<section><h2>Download reports</h2>
+<div class="rep"><div><label for="rdate">Report date</label><input type="date" id="rdate"></div><button id="dpdf" type="button">Preview daily report</button><button id="mpdf" type="button">Preview monthly report</button></div>
+<p class="msg" id="msg">Monthly report uses the month selected at the top.</p><div class="pv" id="pv" hidden></div></section>
+<section><h2>Transactions</h2><div id="list"></div></section>
+</main>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
